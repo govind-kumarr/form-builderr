@@ -16,7 +16,10 @@
     "@mui/material": "^5.14.20",
     "react": "^18.2.0",
     "react-beautiful-dnd": "^13.1.1",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.20.1",
+    "styled-components": "^6.1.1",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.37",

@@ -1,12 +1,17 @@
-import "./App.css";
-import Columns from "./components/Columns";
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { CreateForm } from "./CreateForm";
+import FormRender from "./FormRender";
 
-function App() {
+const App = () => {
   return (
-    <div>
-      <Columns />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<CreateForm />} />
+        <Route path="/form/:formId" element={<FormRender />} />
+      </Routes>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
