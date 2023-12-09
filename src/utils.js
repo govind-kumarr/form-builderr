@@ -35,3 +35,7 @@ export function addItemToEnd(data, newValue) {
 
   return newArray;
 }
+
+export function isQuestion(id, formData) {
+  return formData[id] !== undefined;
+}

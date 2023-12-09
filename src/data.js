@@ -13,14 +13,17 @@ let formData = {
       {
         value: "c1",
         id: "26b473a4-989c-4524-af78-a56b57baf91d",
+        items: [],
       },
       {
         value: "c2",
         id: "3f8f07be-7967-4445-ad46-1de91a1c7a3c",
+        items: [],
       },
       {
         value: "c3",
         id: "afc54eb6-88cb-400c-b784-ac9d9d7d0d5a",
+        items: [],
       },
     ],
     items: [
@@ -47,10 +50,12 @@ let formData = {
       {
         value: "cc1",
         id: "1fef44f1-aecf-4542-9083-3a84fdec54d0",
+        items: [],
       },
       {
         value: "cc2",
         id: "07d1f413-54ae-4c0a-ab0c-4d1fd08ab858",
+        items: [],
       },
     ],
     items: [

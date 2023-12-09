@@ -3,6 +3,7 @@ import "./App.css";
 import Category from "./components/Category";
 import Button from "@mui/material/Button";
 import { v4 as uuidv4 } from "uuid";
+import { axios } from "./config/axiosConfig.js";
 
 function CreateForm() {
   const [formData, setFormData] = useState({});
@@ -26,6 +27,11 @@ function CreateForm() {
     setFormData(newFormData);
   };
 
+  const saveForm = async () => {
+    await axios.post("/form", { form: formData });
+    setFormData({});
+  };
+
   return (
     <div>
       {Object.keys(formData).map((question) => {
@@ -39,6 +45,9 @@ function CreateForm() {
       })}
       <Button variant="contained" onClick={addQuestion}>
         Add Question
+      </Button>
+      <Button variant="contained" onClick={saveForm}>
+        Save Form
       </Button>
     </div>
   );
