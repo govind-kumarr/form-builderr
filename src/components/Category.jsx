@@ -52,7 +52,7 @@ const Category = ({ addQuestionData, questionId }) => {
   }, [category, items]);
   return (
     <DragDropContext onDragEnd={handleOnDragEnd}>
-      <CategoryContainer>
+      <CategoryContainer className="bg-white">
         {/* Add Category Section  */}
         <UpperSection>
           <h1>Category</h1>
