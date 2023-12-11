@@ -8,6 +8,7 @@ import Cloze from "./components/Cloze.jsx";
 
 function CreateForm() {
   const [formData, setFormData] = useState({});
+  console.log({ formData });
   const addQuestion = () => {
     const newQuestionId = uuidv4();
     const newFormData = {
@@ -45,7 +46,11 @@ function CreateForm() {
       </div>
       {Object.keys(formData).map((question) => {
         return (
-          // <Cloze key={uuidv4()} />
+          // <Cloze
+          //   key={uuidv4()}
+          //   questionId={question}
+          //   addQuestionData={addQuestionData}
+          // />
           <Category
             key={question}
             questionId={question}
