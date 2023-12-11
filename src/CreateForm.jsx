@@ -45,12 +45,12 @@ function CreateForm() {
       </div>
       {Object.keys(formData).map((question) => {
         return (
-          <Cloze key={uuidv4()} />
-          // <Category
-          //   key={question}
-          //   questionId={question}
-          //   addQuestionData={addQuestionData}
-          // />
+          // <Cloze key={uuidv4()} />
+          <Category
+            key={question}
+            questionId={question}
+            addQuestionData={addQuestionData}
+          />
         );
       })}
     </div>
