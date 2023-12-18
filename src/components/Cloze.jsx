@@ -4,7 +4,7 @@ import Fills from "./Fills";
 import { FaUnderline } from "react-icons/fa";
 import { v4 as uuidv4 } from "uuid";
 
-const Cloze = ({ questionId, addQuestionData }) => {
+const Cloze = ({ questionId, addQuestionData, save }) => {
   const initialSelectionDetails = {
     selectionStart: 0,
     selectionEnd: 0,
@@ -84,9 +84,11 @@ const Cloze = ({ questionId, addQuestionData }) => {
     setSelectionDetails(initialSelectionDetails);
   }
 
-  // useEffect(() => {
-  //   // addQuestionData(questionId, { text, fills });
-  // }, [text, fills]);
+  console.log("Cloze component renders");
+
+  useEffect(() => {
+    addQuestionData(questionId, { text, fills });
+  }, [save]);
 
   return (
     <div className="border-2 p-2">
@@ -113,4 +115,4 @@ const Cloze = ({ questionId, addQuestionData }) => {
   );
 };
 
-export default Cloze;
+export default React.memo(Cloze);

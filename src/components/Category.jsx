@@ -6,7 +6,7 @@ import styled from "styled-components";
 import SelectCategory from "./SelectCategory";
 import { v4 as uuidv4 } from "uuid";
 
-const Category = ({ addQuestionData, questionId }) => {
+const Category = ({ addQuestionData, questionId, save }) => {
   const [category, setCategory] = useState([]);
   const [items, setItems] = useState([]);
 
@@ -49,7 +49,9 @@ const Category = ({ addQuestionData, questionId }) => {
 
   useEffect(() => {
     addQuestionData(questionId, { category, items });
-  }, [category, items]);
+  }, [save]);
+
+  console.log("category component renders");
   return (
     <DragDropContext onDragEnd={handleOnDragEnd}>
       <CategoryContainer className="bg-white">
