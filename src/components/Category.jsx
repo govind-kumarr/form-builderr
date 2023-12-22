@@ -56,7 +56,7 @@ const Category = ({ addQuestionData, questionId, save }) => {
     <DragDropContext onDragEnd={handleOnDragEnd}>
       <CategoryContainer className="bg-white">
         {/* Add Category Section  */}
-        <UpperSection>
+        <div className="flex flex-col w-72 gap-1 items-start mb-2">
           <h1>Category</h1>
           <Columns
             data={category}
@@ -64,10 +64,10 @@ const Category = ({ addQuestionData, questionId, save }) => {
             columnTitle={"Category"}
             columnId={categoryId}
           />
-        </UpperSection>
+        </div>
         {/* item to category map section  */}
         <BottomSection>
-          <Items>
+          <div className="flex flex-col w-72 gap-1 items-start">
             <h1>Items</h1>
             <Columns
               data={items}
@@ -75,8 +75,8 @@ const Category = ({ addQuestionData, questionId, save }) => {
               columnTitle={"Items"}
               columnId={itemId}
             />
-          </Items>
-          <BelongsToCategory>
+          </div>
+          <div className="flex flex-col w-72 gap-1 items-start">
             <h1>Belongs to</h1>
             {items.map((item, index) => (
               <SelectCategory
@@ -87,7 +87,7 @@ const Category = ({ addQuestionData, questionId, save }) => {
                 index={index}
               />
             ))}
-          </BelongsToCategory>
+          </div>
         </BottomSection>
       </CategoryContainer>
     </DragDropContext>
@@ -95,7 +95,7 @@ const Category = ({ addQuestionData, questionId, save }) => {
 };
 
 const CategoryContainer = styled.div`
-  border: 1px solid red;
+  border: 5px solid red;
   display: flex;
   gap: 5px;
   flex-direction: column;
@@ -105,13 +105,13 @@ const CategoryContainer = styled.div`
 `;
 
 const UpperSection = styled.section`
-  width: 300px;
-  display: flex;
-  gap: 5px;
-  flex-direction: column;
-  border: 1px solid grey;
-  border-radius: 10px;
-  padding: 1rem;
+  // width: 300px;
+  // display: flex;
+  // gap: 5px;
+  // flex-direction: column;
+  // border: 1px solid grey;
+  // border-radius: 10px;
+  // padding: 1rem;
 `;
 
 const Items = styled.div`
@@ -139,7 +139,7 @@ const BelongsToCategory = styled.div`
 const BottomSection = styled.section`
   display: flex;
   gap: 1rem;
-  padding: 1rem;
+  // padding: 1rem;
 `;
 
 export default Category;

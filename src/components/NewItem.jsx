@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import TextField from "@mui/material/TextField";
+import ModeEditIcon from "@mui/icons-material/ModeEdit";
 
 const NewItem = ({ addNewData, placeholder }) => {
   const [value, setValue] = useState("");
@@ -15,18 +16,16 @@ const NewItem = ({ addNewData, placeholder }) => {
   };
 
   return (
-    <div>
-      <TextField
+    <div className="w-full">
+      <ModeEditIcon />
+      <input
         id="outlined-basic"
         placeholder={placeholder}
         variant="outlined"
         value={value}
-        style={{
-          border: "2px solid black",
-          borderRadius: "4px",
-        }}
         onChange={handleChange}
         onBlur={handleBlur}
+        className="border-2 px-2 py-1 rounded-md outline-none"
       />
     </div>
   );

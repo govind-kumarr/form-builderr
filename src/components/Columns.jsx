@@ -17,7 +17,11 @@ const Columns = ({ data, setData, columnTitle, columnId }) => {
   return (
     <Droppable droppableId={columnId}>
       {(provided) => (
-        <div ref={provided.innerRef} {...provided.droppableProps}>
+        <div
+          ref={provided.innerRef}
+          {...provided.droppableProps}
+          className="flex flex-col items-start gap-1"
+        >
           {data.map(({ value, id }, index) => (
             <DragableTextBox key={id} value={value} id={id} index={index} />
           ))}

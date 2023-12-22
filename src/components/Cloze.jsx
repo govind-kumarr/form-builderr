@@ -3,6 +3,9 @@ import TextChunks from "./TextChunks";
 import Fills from "./Fills";
 import { FaUnderline } from "react-icons/fa";
 import { v4 as uuidv4 } from "uuid";
+import DragableTextBox from "./DragableTextBox";
+import Columns from "./Columns";
+import { DragDropContext } from "react-beautiful-dnd";
 
 const Cloze = ({ questionId, addQuestionData, save }) => {
   const initialSelectionDetails = {
@@ -86,31 +89,61 @@ const Cloze = ({ questionId, addQuestionData, save }) => {
 
   console.log("Cloze component renders");
 
+  const handleDragEnd = (result) => {
+    console.log(result);
+  };
+
   useEffect(() => {
     addQuestionData(questionId, { text, fills });
   }, [save]);
 
   return (
-    <div className="border-2 p-2">
-      <h1>Fill in the blanks</h1>
-      <button
-        className={`${
-          selectionDetails.placeHolder.length === 0 ? "hidden" : ""
-        }`}
-        onClick={applySelection}
-      >
-        <FaUnderline />
-      </button>
-      <input
-        type="text"
-        value={text}
-        onChange={handleChange}
-        onMouseUp={handleSelection}
-        onBlur={handleDeselection}
-        className="w-full outline-none p-2"
-      />
-      {fills.length > 0 &&
-        fills.map(({ id, word: value }) => <Fills key={id} value={value} />)}
+    <div className="border-2 p-2 bg-white flex flex-col gap-2">
+      {/* Preview Sentence  */}
+      <div>
+        <h1>Sentence</h1>
+      </div>
+      {/* Operations  */}
+      <div>
+        <button
+          className={`${
+            selectionDetails.placeHolder.length === 0 ? "hidden" : ""
+          }`}
+          onClick={applySelection}
+        >
+          <FaUnderline />
+        </button>
+      </div>
+
+      {/* Edit Sentence  */}
+      <div className="border-2 border-gray-400 rounded-md p-1">
+        <input
+          type="text"
+          value={text}
+          onChange={handleChange}
+          onMouseUp={handleSelection}
+          onBlur={handleDeselection}
+          className="w-full outline-none p-1 border-none"
+        />
+      </div>
+
+      {/* fills  */}
+      <div>
+        <DragDropContext onDragEnd={handleDragEnd}>
+          <Columns
+            data={fills}
+            setData={setFills}
+            columnTitle={""}
+            columnId={"words"}
+          />
+        </DragDropContext>
+
+        {/* {fills.length > 0 &&
+          fills.map(({ id, word: value }, index) => (
+            // <Fills key={id} value={value} />
+            <DragableTextBox key={id} value={value} id={id} index={index} />
+          ))} */}
+      </div>
     </div>
   );
 };

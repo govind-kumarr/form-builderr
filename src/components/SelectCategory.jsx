@@ -10,26 +10,19 @@ const SelectCategory = ({ category, mapItemToCategory, item, index }) => {
     setValue(e.target.value);
   };
   return (
-    <div
-      style={{
-        border: "2px solid black",
-        borderRadius: "4px",
-        padding: "1rem",
-      }}
-    >
-      <Select
-        labelId="demo-simple-select-label"
-        id="demo-simple-select"
+    <div className="border-2 px-2 py-1 rounded-md">
+      <select
         value={value}
-        label="Age"
         onChange={handleChange}
+        className="w-full outline-none"
       >
+        <option value="">select category</option>
         {category.map((c) => (
-          <MenuItem value={c.id} key={c.id}>
+          <option value={c.id} key={c.id}>
             {c.value}
-          </MenuItem>
+          </option>
         ))}
-      </Select>
+      </select>
     </div>
   );
 };

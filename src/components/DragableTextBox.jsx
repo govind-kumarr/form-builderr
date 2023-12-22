@@ -1,6 +1,7 @@
 import React from "react";
 import TextField from "@mui/material/TextField";
 import { Draggable } from "react-beautiful-dnd";
+import DragIndicatorIcon from "@mui/icons-material/DragIndicator";
 
 const DragableTextBox = ({ value, id, index }) => {
   return (
@@ -11,16 +12,14 @@ const DragableTextBox = ({ value, id, index }) => {
           {...provided.draggableProps}
           {...provided.dragHandleProps}
         >
-          <div style={{ padding: "1rem", border: "1px solid grey" }}>
-            <TextField
+          <div className="">
+            <DragIndicatorIcon />
+            <input
               id="outlined-basic"
               placeholder="Enter new Cat (Optional)"
               variant="outlined"
               value={value}
-              style={{
-                border: "2px solid black",
-                borderRadius: "4px",
-              }}
+              className="outline-none border-2 border-gray-500 rounded-md py-1 px-2"
             />
           </div>
         </div>
